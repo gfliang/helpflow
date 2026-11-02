@@ -1,0 +1,43 @@
+# Render Blueprint: backend (Docker) + frontend (static site).
+# Database: Supabase free Postgres (pgvector built in) — fill DATABASE_URL manually.
+services:
+  - type: web
+    name: helpflow-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_URL
+        sync: false # fill with the Supabase session-pooler DSN, e.g. postgresql+psycopg://postgres.xxx:pwd@aws-1-xxx.pooler.supabase.com:5432/postgres
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_ORIGINS
+        sync: false # e.g. https://helpflow-web.onrender.com
+      - key: OPENROUTER_API_KEY
+        sync: false # from https://openrouter.ai/keys
+      - key: OPENROUTER_MODEL
+        value: openrouter/free
+      - key: EMBEDDING_BATCH_SIZE
+        value: "8" # free instance has 512 MB RAM, keep inference batches small
+      - key: APP_ENV
+        value: production
+      - key: RATE_LIMIT_ENABLED
+        value: "false" # no Redis on the free plan; falls back to in-process anyway
+
+  - type: web
+    name: helpflow-web
+    runtime: static
+    buildCommand: cd frontend && npm ci && npm run build
+    staticPublishPath: frontend/dist
+    plan: free
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false # e.g. https://helpflow-api.onrender.com
+      - key: VITE_WORKSPACE_SLUG
+        value: helpflow

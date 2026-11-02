@@ -1,0 +1,42 @@
+{"id":"q01","question":"你们这个系统主要是做什么的？","expected_documents":["HelpFlow 产品介绍"],"must_include":["AI 智能客服"],"should_refuse":false}
+{"id":"q02","question":"访客提问需要先注册账号吗？","expected_documents":["HelpFlow 产品介绍"],"must_include":["无需注册"],"should_refuse":false}
+{"id":"q03","question":"基础版一个月多少钱？","expected_documents":["价格方案与计费方式"],"must_include":["299"],"should_refuse":false}
+{"id":"q04","question":"AI 回答次数用超了怎么收费？","expected_documents":["价格方案与计费方式"],"must_include":["60 元"],"should_refuse":false}
+{"id":"q05","question":"免费试用可以体验多久？","expected_documents":["免费试用说明"],"must_include":["14 天"],"should_refuse":false}
+{"id":"q06","question":"试用到期后我的数据还会保留吗？","expected_documents":["免费试用说明"],"must_include":["30 天"],"should_refuse":false}
+{"id":"q07","question":"年度订阅什么条件下可以全额退款？","expected_documents":["退款与取消政策"],"must_include":["7 天","100 次"],"should_refuse":false}
+{"id":"q08","question":"退款提交后多久能到账？","expected_documents":["退款与取消政策"],"must_include":["3 到 10 个工作日"],"should_refuse":false}
+{"id":"q09","question":"聊天窗口的代码怎么放到我们网站上？","expected_documents":["技术接入与聊天组件"],"must_include":["widget.js"],"should_refuse":false}
+{"id":"q10","question":"知识库批量导入一次最多多大？","expected_documents":["技术接入与聊天组件"],"must_include":["10 MB"],"should_refuse":false}
+{"id":"q11","question":"怎么才能找到真人客服？","expected_documents":["如何联系人工客服"],"must_include":["转人工"],"should_refuse":false}
+{"id":"q12","question":"你们客服几点上班？","expected_documents":["如何联系人工客服"],"must_include":["9:00-18:00"],"should_refuse":false}
+{"id":"q13","question":"密码长度有要求吗？","expected_documents":["账号安全与密码管理"],"must_include":["8 位"],"should_refuse":false}
+{"id":"q14","question":"登录连续失败几次会被锁？","expected_documents":["账号安全与密码管理"],"must_include":["5 次","30 分钟"],"should_refuse":false}
+{"id":"q15","question":"购买专业版能开发票吗？","expected_documents":["发票与账单管理"],"must_include":["增值税普通发票"],"should_refuse":false}
+{"id":"q16","question":"发票提交后几天能开好？","expected_documents":["发票与账单管理"],"must_include":["3 个工作日"],"should_refuse":false}
+{"id":"q17","question":"客服角色可以发布知识库文档吗？","expected_documents":["团队成员与权限说明"],"must_include":["不能发布"],"should_refuse":false}
+{"id":"q18","question":"怎么把同事加进工作空间？","expected_documents":["团队成员与权限说明"],"must_include":["邮箱邀请"],"should_refuse":false}
+{"id":"q19","question":"访客问答接口一分钟最多调用多少次？","expected_documents":["API 限流与配额说明"],"must_include":["30 次 / 分钟"],"should_refuse":false}
+{"id":"q20","question":"管理接口的调用频率限制是多少？","expected_documents":["API 限流与配额说明"],"must_include":["200 次 / 分钟"],"should_refuse":false}
+{"id":"q21","question":"后台能把会话和工单导出来吗？","expected_documents":["数据导出与备份"],"must_include":["CSV"],"should_refuse":false}
+{"id":"q22","question":"数据库备份会保留多久？","expected_documents":["数据导出与备份"],"must_include":["30 天"],"should_refuse":false}
+{"id":"q23","question":"删除账号以后多久真正生效？","expected_documents":["如何删除工作空间或账号"],"must_include":["7 天后删除"],"should_refuse":false}
+{"id":"q24","question":"工作空间删掉后数据还能找回吗？","expected_documents":["如何删除工作空间或账号"],"must_include":["永久清除"],"should_refuse":false}
+{"id":"q25","question":"Webhook 可以订阅哪些事件？","expected_documents":["Webhook 事件订阅"],"must_include":["ticket.created"],"should_refuse":false}
+{"id":"q26","question":"怎么确认 Webhook 请求真的来自你们？","expected_documents":["Webhook 事件订阅"],"must_include":["HMAC-SHA256"],"should_refuse":false}
+{"id":"q27","question":"企业版承诺的可用性是多少？","expected_documents":["SLA 与服务等级说明"],"must_include":["99.9%"],"should_refuse":false}
+{"id":"q28","question":"专业版提交工单多久有人响应？","expected_documents":["SLA 与服务等级说明"],"must_include":["4 小时"],"should_refuse":false}
+{"id":"q29","question":"紧急工单要求多长时间内解决？","expected_documents":["工单 SLA 与超时升级机制"],"must_include":["24 小时内解决"],"should_refuse":false}
+{"id":"q30","question":"工单快超时的时候会提醒处理人吗？","expected_documents":["工单 SLA 与超时升级机制"],"must_include":["30 分钟"],"should_refuse":false}
+{"id":"q31","question":"你们能和钉钉打通吗？","expected_documents":["钉钉集成与 IM 同步"],"must_include":["钉钉群机器人"],"should_refuse":false}
+{"id":"q32","question":"在钉钉里回复的内容会同步回客服系统吗？","expected_documents":["钉钉集成与 IM 同步"],"must_include":["自动同步回"],"should_refuse":false}
+{"id":"q33","question":"私有化部署对服务器配置有什么要求？","expected_documents":["私有化部署说明"],"must_include":["2 核 4 GB"],"should_refuse":false}
+{"id":"q34","question":"私有化部署支持哪些部署方式？","expected_documents":["私有化部署说明"],"must_include":["Kubernetes"],"should_refuse":false}
+{"id":"q35","question":"你们支持抖音小店对接吗？","expected_documents":[],"must_include":[],"should_refuse":true}
+{"id":"q36","question":"有 iOS App 可以下载吗？","expected_documents":[],"must_include":[],"should_refuse":true}
+{"id":"q37","question":"HelpFlow 的 CEO 是谁？","expected_documents":[],"must_include":[],"should_refuse":true}
+{"id":"q38","question":"你们的港股代码是多少？","expected_documents":[],"must_include":[],"should_refuse":true}
+{"id":"q39","question":"能和 Salesforce 双向同步客户数据吗？","expected_documents":[],"must_include":[],"should_refuse":true}
+{"id":"q40","question":"提供培训认证考试吗？","expected_documents":[],"must_include":[],"should_refuse":true}
+{"id":"q41","question":"支持区块链存证吗？","expected_documents":[],"must_include":[],"should_refuse":true}
+{"id":"q42","question":"在哪些城市有线下门店？","expected_documents":[],"must_include":[],"should_refuse":true}
