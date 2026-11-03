@@ -4,7 +4,7 @@ name: keepalive
 
 on:
   schedule:
-    - cron: "*/14 * * * *"
+    - cron: "*/12 * * * *"
   workflow_dispatch: # allow manual trigger
 
 jobs:
