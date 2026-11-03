@@ -1,0 +1,20 @@
+# Keep the Render free-tier backend (and Supabase via /health's SELECT 1) warm.
+# Render spins down free web services after ~15 min without inbound traffic.
+name: keepalive
+
+on:
+  schedule:
+    - cron: "*/14 * * * *"
+  workflow_dispatch: # allow manual trigger
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Ping backend health endpoint
+        run: |
+          status=$(curl -sS -o /dev/null -w "%{http_code}" -m 60 \
+            https://helpflow-api-94db.onrender.com/api/v1/health)
+          echo "health check -> HTTP $status"
+          test "$status" = "200"
