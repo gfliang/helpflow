@@ -578,6 +578,14 @@ export function listMembers(): Promise<Member[]> {
   return request('/workspaces/current/members')
 }
 
+export function addMember(payload: { email: string; name: string; role: Member['role'] }): Promise<Member> {
+  return request('/workspaces/current/members', { method: 'POST', body: JSON.stringify(payload) })
+}
+
+export function updateMemberRole(memberId: string, role: Member['role']): Promise<Member> {
+  return request(`/workspaces/current/members/${memberId}`, { method: 'PATCH', body: JSON.stringify({ role }) })
+}
+
 export function fetchDashboardSummary(): Promise<DashboardSummary> {
   return request('/dashboard/summary')
 }
