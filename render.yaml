@@ -25,6 +25,8 @@ services:
         value: production
       - key: RATE_LIMIT_ENABLED
         value: "false" # no Redis on the free plan; falls back to in-process anyway
+      - key: AGENT_CHECKPOINT_BACKEND
+        value: memory # Supabase pooler breaks LangGraph PostgresSaver writes; in-memory checkpoints keep the agent flow working on the free tier
 
   - type: web
     name: helpflow-web
