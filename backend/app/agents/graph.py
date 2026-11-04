@@ -169,6 +169,30 @@ def _validated_plan(question: str) -> tuple[str, list[dict[str, object]]]:
                 )
             call = {"name": name, "arguments": {**call["arguments"], "order_no": order_no}}
         allowed.append(call)
+    # 退款意图且带订单号时必须走到审批环节：LLM 规划器偶尔只查资格就结束，
+    # 会导致回复谎称"已提交审批"但实际没有审批单。
+    if (
+        classify_intent(question) == "refund"
+        and order_no
+        and not any(item["name"] == "request_refund" for item in allowed)
+    ):
+        if not any(item["name"] == "check_refund_eligibility" for item in allowed):
+            allowed.append(
+                {"name": "check_refund_eligibility", "arguments": {"order_no": order_no}}
+            )
+        allowed.append(
+            {"name": "request_refund", "arguments": {"order_no": order_no, "reason": question}}
+        )
+        intent = "refund"
+    if len(allowed) > settings.agent_max_steps and any(
+        item["name"] == "request_refund" for item in allowed
+    ):
+        # 步数上限不能挤掉退款链路，其余工具让位。
+        allowed = [
+            item
+            for item in allowed
+            if item["name"] in {"check_refund_eligibility", "request_refund"}
+        ]
     return intent, allowed[: settings.agent_max_steps]
 
 
